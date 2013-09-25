@@ -1,0 +1,261 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;cxx;c;def</Extensions>
+    </Filter>
+    <Filter Include="Form Files">
+      <UniqueIdentifier>{99349809-55BA-4b9d-BF79-8FDBB0286EB3}</UniqueIdentifier>
+      <Extensions>ui</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{D9D6E242-F8AF-46E4-B9FD-80ECBC20BA3E}</UniqueIdentifier>
+      <Extensions>qrc;*</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="Generated Files">
+      <UniqueIdentifier>{71ED8ED8-ACB9-4CE9-BBE1-E00B30144E11}</UniqueIdentifier>
+      <Extensions>moc;h;cpp</Extensions>
+      <SourceControlFiles>False</SourceControlFiles>
+    </Filter>
+    <Filter Include="Generated Files\Debug">
+      <UniqueIdentifier>{3cc25fcb-1691-4401-b21b-529cb324b171}</UniqueIdentifier>
+      <Extensions>cpp;moc</Extensions>
+      <SourceControlFiles>False</SourceControlFiles>
+    </Filter>
+    <Filter Include="Generated Files\Release">
+      <UniqueIdentifier>{2a038727-c148-44f4-926c-81b779c364c7}</UniqueIdentifier>
+      <Extensions>cpp;moc</Extensions>
+      <SourceControlFiles>False</SourceControlFiles>
+    </Filter>
+    <Filter Include="Include Files">
+      <UniqueIdentifier>{b1890793-53e9-4d5b-90ca-6e4d4b083738}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="GeneratedFiles\qrc_haptics.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_haptics.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_haptics.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="src\haptics.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_widgetGL.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_widgetGL.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="src\widgetGL.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_widgetNavi.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_widgetNavi.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="src\widgetNavi.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\cSurfaceMesh.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\kernel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\mesh.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="include\network\HNCommonObjectFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="include\network\HNFileCommunicator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="include\network\HNNetworkCommunicator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="include\network\HNNetworkObjectFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="include\network\HNWindowsServerSocket.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="include\network\HNWindowsThread.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="include\network\HNThreadRunnable.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="include\network\HNUtilities.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="include\network\tinyxml2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="include\network\HNWindowsSocket.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CShapeMatching3dofPointer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CShapeMatchingForceAlgo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="haptics.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="haptics.qrc">
+      <Filter>Resource Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="include\haptics.h">
+      <Filter>Include Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="include\widgetGL.h">
+      <Filter>Include Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="include\widgetNavi.h">
+      <Filter>Include Files</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GeneratedFiles\ui_haptics.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\cSurfaceMesh.h">
+      <Filter>Include Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\kernel.h">
+      <Filter>Include Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\mesh.h">
+      <Filter>Include Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\HSMReceiver.h">
+      <Filter>Include Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\HSMTransmitter.h">
+      <Filter>Include Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\performanceCounter.h">
+      <Filter>Include Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\network\HNCaptureDevice.h">
+      <Filter>Include Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\network\HNCommunicator.h">
+      <Filter>Include Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\network\HNCompressedPacketMarshaller.h">
+      <Filter>Include Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\network\HNConnectionInfo.h">
+      <Filter>Include Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\network\HNData.h">
+      <Filter>Include Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\network\HNEventGenerator.h">
+      <Filter>Include Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\network\HNFileCommunicator.h">
+      <Filter>Include Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\network\HNFileInfo.h">
+      <Filter>Include Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\network\HNInfo.h">
+      <Filter>Include Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\network\HNLogger.h">
+      <Filter>Include Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\network\HNMutex.h">
+      <Filter>Include Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\network\HNNetworkCommunicator.h">
+      <Filter>Include Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\network\HNNetworkObjectFactory.h">
+      <Filter>Include Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\network\HNNetworkPacket.h">
+      <Filter>Include Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\network\HNNetworkReceiver.h">
+      <Filter>Include Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\network\HNObjectFactory.h">
+      <Filter>Include Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\network\HNPacket.h">
+      <Filter>Include Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\network\HNPacketMarshaller.h">
+      <Filter>Include Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\network\HNPacketMarshallHandler.h">
+      <Filter>Include Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\network\HNPoints.h">
+      <Filter>Include Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\network\HNServerSocket.h">
+      <Filter>Include Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\network\HNSocket.h">
+      <Filter>Include Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\network\HNThread.h">
+      <Filter>Include Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\network\HNThreadRunnable.h">
+      <Filter>Include Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\network\HNThreadSafe.h">
+      <Filter>Include Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\network\HNUtilities.h">
+      <Filter>Include Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\network\HNWindowsMutex.h">
+      <Filter>Include Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\network\HNWindowsNetworkObjectFactory.h">
+      <Filter>Include Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\network\HNWindowsObjectFactory.h">
+      <Filter>Include Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\network\HNWindowsServerSocket.h">
+      <Filter>Include Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\network\HNWindowsSocket.h">
+      <Filter>Include Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\network\HNWindowsThread.h">
+      <Filter>Include Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\network\tinyxml2.h">
+      <Filter>Include Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CShapeMatching3dofPointer.h">
+      <Filter>Include Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CShapeMatchingForceAlgo.h">
+      <Filter>Include Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

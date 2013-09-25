@@ -1,0 +1,1335 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>HapticsClass</class>
+ <widget class="QMainWindow" name="HapticsClass">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1400</width>
+    <height>850</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>1400</width>
+    <height>850</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>1400</width>
+    <height>850</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Haptics</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <widget class="widgetGL" name="widget" native="true">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>1024</width>
+      <height>768</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>1024</width>
+      <height>768</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>1024</width>
+      <height>768</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QGroupBox" name="groupBox">
+    <property name="geometry">
+     <rect>
+      <x>1040</x>
+      <y>470</y>
+      <width>351</width>
+      <height>311</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Haptic Navigation</string>
+    </property>
+    <widget class="QCheckBox" name="checkBox">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>20</y>
+       <width>111</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Reference Frame</string>
+     </property>
+    </widget>
+    <widget class="QCheckBox" name="checkBox_2">
+     <property name="geometry">
+      <rect>
+       <x>190</x>
+       <y>20</y>
+       <width>91</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Linear Velocity</string>
+     </property>
+    </widget>
+    <widget class="widgetNavi" name="widget_haptic" native="true">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>40</y>
+       <width>331</width>
+       <height>251</height>
+      </rect>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QTabWidget" name="tabWidget">
+    <property name="geometry">
+     <rect>
+      <x>1040</x>
+      <y>40</y>
+      <width>351</width>
+      <height>351</height>
+     </rect>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::LeftToRight</enum>
+    </property>
+    <property name="tabPosition">
+     <enum>QTabWidget::East</enum>
+    </property>
+    <property name="currentIndex">
+     <number>1</number>
+    </property>
+    <widget class="QWidget" name="tab">
+     <attribute name="title">
+      <string>Grid</string>
+     </attribute>
+     <widget class="QWidget" name="horizontalLayoutWidget">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>40</y>
+        <width>311</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <widget class="QLabel" name="label">
+         <property name="text">
+          <string>Grid Density</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QSpinBox" name="spinBox_gridDensity">
+         <property name="value">
+          <number>3</number>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_ok">
+         <property name="text">
+          <string>OK</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="horizontalLayoutWidget_4">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>0</y>
+        <width>311</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_4">
+       <item>
+        <widget class="QLabel" name="label_2">
+         <property name="text">
+          <string>Level</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QComboBox" name="comboBox_level"/>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_addLevel">
+         <property name="text">
+          <string>Add</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_deleteLevel">
+         <property name="text">
+          <string>Delete</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="horizontalLayoutWidget_7">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>80</y>
+        <width>291</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_7">
+       <item>
+        <widget class="QCheckBox" name="checkBox_multigrid">
+         <property name="text">
+          <string>Multigrid</string>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QCheckBox" name="checkBox_dynamics">
+         <property name="text">
+          <string>Dynamics</string>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="horizontalLayoutWidget_10">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>120</y>
+        <width>291</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_10">
+       <item>
+        <widget class="QCheckBox" name="checkBox_gravity">
+         <property name="text">
+          <string>Gravity</string>
+         </property>
+         <property name="checked">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_18">
+         <property name="text">
+          <string>Gravity Magnitude</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="lineEdit_gravityMagnitude">
+         <property name="text">
+          <string>0.01</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_setGravityMagnitude">
+         <property name="text">
+          <string>SetMagnitude</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="horizontalLayoutWidget_9">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>160</y>
+        <width>291</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_9">
+       <item>
+        <widget class="QLabel" name="label_17">
+         <property name="text">
+          <string>Force Scalar</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="lineEdit_forceScalar">
+         <property name="text">
+          <string>10.0</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_setForceScalar">
+         <property name="text">
+          <string>Set</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QGroupBox" name="groupBox_4">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>200</y>
+        <width>291</width>
+        <height>111</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Adapative Option</string>
+      </property>
+      <widget class="QWidget" name="horizontalLayoutWidget_23">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>30</y>
+         <width>281</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <layout class="QHBoxLayout" name="horizontalLayout_23">
+        <item>
+         <widget class="QLabel" name="label_21">
+          <property name="text">
+           <string>Threshold</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="lineEdit_thresholdEnergy">
+          <property name="text">
+           <string>0.25</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="pushButton_setThresholdEnergy">
+          <property name="text">
+           <string>SetEnergyThreshold</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="horizontalLayoutWidget_24">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>70</y>
+         <width>281</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <layout class="QHBoxLayout" name="horizontalLayout_24">
+        <item>
+         <widget class="QCheckBox" name="checkBox_setShowLastLevel">
+          <property name="text">
+           <string>Show Last Level Only</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QCheckBox" name="checkBox_showParticle">
+          <property name="text">
+           <string>Show Particle Coupling</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="horizontalLayoutWidget_20">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>310</y>
+        <width>301</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_20">
+       <item>
+        <widget class="QLabel" name="label_20">
+         <property name="text">
+          <string>Mass</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="lineEdit_mass">
+         <property name="text">
+          <string>1.0</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_setMass">
+         <property name="text">
+          <string>SetMass</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_resetMass">
+         <property name="text">
+          <string>ResetMass</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_2">
+     <attribute name="title">
+      <string>ShapeMatching</string>
+     </attribute>
+     <widget class="QGroupBox" name="groupBox_2">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>300</y>
+        <width>311</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Constraints</string>
+      </property>
+      <widget class="QRadioButton" name="radioButton_point">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>20</y>
+         <width>111</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Position Constraint</string>
+       </property>
+      </widget>
+      <widget class="QRadioButton" name="radioButton_orientation">
+       <property name="geometry">
+        <rect>
+         <x>160</x>
+         <y>20</y>
+         <width>131</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Orientation Constraint</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="horizontalLayoutWidget_11">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>296</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_11">
+       <item>
+        <widget class="QCheckBox" name="checkBox_exportObj">
+         <property name="text">
+          <string>ExportOBJ</string>
+         </property>
+         <property name="checked">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QCheckBox" name="checkBox_captureScreen">
+         <property name="text">
+          <string>CaptureScreen</string>
+         </property>
+         <property name="checked">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QCheckBox" name="checkBox_captureSubScreen">
+         <property name="text">
+          <string>CaptureSubScreen</string>
+         </property>
+         <property name="checked">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="horizontalLayoutWidget_2">
+    <property name="geometry">
+     <rect>
+      <x>1040</x>
+      <y>400</y>
+      <width>351</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <item>
+      <widget class="QPushButton" name="pushButton_initSimulator">
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="haptics.qrc">
+         <normaloff>:/Haptics/Resources/gnome_run.png</normaloff>:/Haptics/Resources/gnome_run.png</iconset>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_startSimulation">
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="haptics.qrc">
+         <normaloff>:/Haptics/Resources/gtk_media_play_ltr.png</normaloff>:/Haptics/Resources/gtk_media_play_ltr.png</iconset>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_nextStep">
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="haptics.qrc">
+         <normaloff>:/Haptics/Resources/gtk_media_next_ltr.png</normaloff>:/Haptics/Resources/gtk_media_next_ltr.png</iconset>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton__pauseSimulation">
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="haptics.qrc">
+         <normaloff>:/Haptics/Resources/gtk_media_pause.png</normaloff>:/Haptics/Resources/gtk_media_pause.png</iconset>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_resetSimulation">
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="haptics.qrc">
+         <normaloff>:/Haptics/Resources/gtk_media_stop.png</normaloff>:/Haptics/Resources/gtk_media_stop.png</iconset>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QComboBox" name="comboBox_chooseSimulator">
+    <property name="geometry">
+     <rect>
+      <x>1040</x>
+      <y>10</y>
+      <width>351</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <item>
+     <property name="text">
+      <string>NONE</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Native Shape Matching</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Hierarchical Shape Matching</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>NewHierarchical Shape Matching</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Adaptive Hierarchy Shape Matching</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Adaptive Shape Matching</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Velocity Matching</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Single Grid</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Pair Matching</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Multiple Velocity Matching</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Simulation through Network</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Simulation for Mobile</string>
+     </property>
+    </item>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1400</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QToolBar" name="mainToolBar">
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionLoadMech"/>
+   <addaction name="separator"/>
+   <addaction name="actionScaleMesh"/>
+   <addaction name="actionShowGrid"/>
+   <addaction name="actionShowMesh"/>
+   <addaction name="actionShowVox"/>
+   <addaction name="actionShowSelection"/>
+   <addaction name="actionReset"/>
+   <addaction name="actionSetMass"/>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <action name="actionLoadMech">
+   <property name="checkable">
+    <bool>false</bool>
+   </property>
+   <property name="checked">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="haptics.qrc">
+     <normaloff>:/Haptics/Resources/folder_drag_accept.png</normaloff>:/Haptics/Resources/folder_drag_accept.png</iconset>
+   </property>
+   <property name="text">
+    <string>loadMech</string>
+   </property>
+   <property name="toolTip">
+    <string>loadMesh</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
+   </property>
+  </action>
+  <action name="actionScaleMesh">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="haptics.qrc">
+     <normaloff>:/Haptics/Resources/scale_ruler.png</normaloff>:/Haptics/Resources/scale_ruler.png</iconset>
+   </property>
+   <property name="text">
+    <string>scaleMesh</string>
+   </property>
+   <property name="toolTip">
+    <string>scaleMesh</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+N</string>
+   </property>
+  </action>
+  <action name="actionShowGrid">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="haptics.qrc">
+     <normaloff>:/Haptics/Resources/Matrix.png</normaloff>:/Haptics/Resources/Matrix.png</iconset>
+   </property>
+   <property name="text">
+    <string>showGrid</string>
+   </property>
+   <property name="toolTip">
+    <string>showGrid</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+2</string>
+   </property>
+  </action>
+  <action name="actionShowMesh">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="haptics.qrc">
+     <normaloff>:/Haptics/Resources/stock_3d_material.png</normaloff>:/Haptics/Resources/stock_3d_material.png</iconset>
+   </property>
+   <property name="text">
+    <string>showMesh</string>
+   </property>
+   <property name="toolTip">
+    <string>showMesh</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+1</string>
+   </property>
+  </action>
+  <action name="actionShowVox">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="haptics.qrc">
+     <normaloff>:/Haptics/Resources/CMS.png</normaloff>:/Haptics/Resources/CMS.png</iconset>
+   </property>
+   <property name="text">
+    <string>showVox</string>
+   </property>
+   <property name="toolTip">
+    <string>showVox</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+3</string>
+   </property>
+  </action>
+  <action name="actionShowSelection">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="haptics.qrc">
+     <normaloff>:/Haptics/Resources/Selection.png</normaloff>:/Haptics/Resources/Selection.png</iconset>
+   </property>
+   <property name="text">
+    <string>showSelection</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+4</string>
+   </property>
+  </action>
+  <action name="actionReset">
+   <property name="icon">
+    <iconset resource="haptics.qrc">
+     <normaloff>:/Haptics/Resources/undocamera.png</normaloff>:/Haptics/Resources/undocamera.png</iconset>
+   </property>
+   <property name="text">
+    <string>Reset</string>
+   </property>
+   <property name="toolTip">
+    <string>actionReset</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+5</string>
+   </property>
+  </action>
+  <action name="actionSetMass">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="haptics.qrc">
+     <normaloff>:/Haptics/Resources/TwoCubes.png</normaloff>:/Haptics/Resources/TwoCubes.png</iconset>
+   </property>
+   <property name="text">
+    <string>setMass</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>widgetGL</class>
+   <extends>QWidget</extends>
+   <header>widgetgl.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>widgetNavi</class>
+   <extends>QWidget</extends>
+   <header>widgetnavi.h</header>
+   <container>1</container>
+   <slots>
+    <slot>onReferenceON(bool)</slot>
+    <slot>onLinearVelocity(bool)</slot>
+   </slots>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="haptics.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>checkBox</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>widget_haptic</receiver>
+   <slot>onReferenceON(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1117</x>
+     <y>554</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1090</x>
+     <y>567</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_2</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>widget_haptic</receiver>
+   <slot>onLinearVelocity(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1241</x>
+     <y>547</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1214</x>
+     <y>570</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionLoadMech</sender>
+   <signal>triggered()</signal>
+   <receiver>HapticsClass</receiver>
+   <slot>loadMesh()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>699</x>
+     <y>424</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionScaleMesh</sender>
+   <signal>triggered()</signal>
+   <receiver>HapticsClass</receiver>
+   <slot>scaleMesh()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>699</x>
+     <y>424</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionShowGrid</sender>
+   <signal>triggered()</signal>
+   <receiver>HapticsClass</receiver>
+   <slot>showGrid()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>699</x>
+     <y>424</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionShowMesh</sender>
+   <signal>triggered(bool)</signal>
+   <receiver>HapticsClass</receiver>
+   <slot>showMesh(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>699</x>
+     <y>424</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionShowSelection</sender>
+   <signal>triggered(bool)</signal>
+   <receiver>HapticsClass</receiver>
+   <slot>showSelection(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>699</x>
+     <y>424</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionShowVox</sender>
+   <signal>triggered(bool)</signal>
+   <receiver>HapticsClass</receiver>
+   <slot>showVox(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>699</x>
+     <y>424</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_ok</sender>
+   <signal>clicked()</signal>
+   <receiver>HapticsClass</receiver>
+   <slot>setGridDensity()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1361</x>
+     <y>163</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1061</x>
+     <y>455</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_initSimulator</sender>
+   <signal>clicked()</signal>
+   <receiver>HapticsClass</receiver>
+   <slot>initializeSimulation()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1082</x>
+     <y>485</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1054</x>
+     <y>499</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_startSimulation</sender>
+   <signal>clicked()</signal>
+   <receiver>HapticsClass</receiver>
+   <slot>startSimulation()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1143</x>
+     <y>487</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1127</x>
+     <y>510</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton__pauseSimulation</sender>
+   <signal>clicked()</signal>
+   <receiver>HapticsClass</receiver>
+   <slot>pauseSimulation()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1272</x>
+     <y>487</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1226</x>
+     <y>509</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionReset</sender>
+   <signal>triggered()</signal>
+   <receiver>HapticsClass</receiver>
+   <slot>resetCamera()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>699</x>
+     <y>424</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>comboBox_chooseSimulator</sender>
+   <signal>currentIndexChanged(int)</signal>
+   <receiver>HapticsClass</receiver>
+   <slot>chooseSimulator(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1169</x>
+     <y>77</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1350</x>
+     <y>55</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>comboBox_level</sender>
+   <signal>currentIndexChanged(int)</signal>
+   <receiver>HapticsClass</receiver>
+   <slot>chooseLevelDisplay(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1144</x>
+     <y>116</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1102</x>
+     <y>58</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_addLevel</sender>
+   <signal>clicked()</signal>
+   <receiver>HapticsClass</receiver>
+   <slot>addLevel()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1246</x>
+     <y>115</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1380</x>
+     <y>458</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_deleteLevel</sender>
+   <signal>clicked()</signal>
+   <receiver>HapticsClass</receiver>
+   <slot>clearLevel()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1325</x>
+     <y>113</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1386</x>
+     <y>517</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_multigrid</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>HapticsClass</receiver>
+   <slot>setMultigrid(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1083</x>
+     <y>189</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1112</x>
+     <y>464</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_dynamics</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>HapticsClass</receiver>
+   <slot>setDynamics(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1225</x>
+     <y>198</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1241</x>
+     <y>467</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_gravity</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>HapticsClass</receiver>
+   <slot>setGravity(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1079</x>
+     <y>230</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1116</x>
+     <y>449</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_setGravityMagnitude</sender>
+   <signal>clicked()</signal>
+   <receiver>HapticsClass</receiver>
+   <slot>setGravityMagnitude()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1314</x>
+     <y>228</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1393</x>
+     <y>371</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_setForceScalar</sender>
+   <signal>clicked()</signal>
+   <receiver>HapticsClass</receiver>
+   <slot>setGravityMagnitude()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1298</x>
+     <y>275</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1394</x>
+     <y>482</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionSetMass</sender>
+   <signal>triggered(bool)</signal>
+   <receiver>HapticsClass</receiver>
+   <slot>setEnableMass(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>699</x>
+     <y>424</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_setShowLastLevel</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>HapticsClass</receiver>
+   <slot>setShowLastLevel(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1127</x>
+     <y>380</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1097</x>
+     <y>459</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_setThresholdEnergy</sender>
+   <signal>clicked()</signal>
+   <receiver>HapticsClass</receiver>
+   <slot>setEnergyThreshold()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1271</x>
+     <y>343</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1355</x>
+     <y>463</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_setMass</sender>
+   <signal>clicked()</signal>
+   <receiver>HapticsClass</receiver>
+   <slot>setMass()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1236</x>
+     <y>422</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1315</x>
+     <y>510</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_resetMass</sender>
+   <signal>clicked()</signal>
+   <receiver>HapticsClass</receiver>
+   <slot>resetMass()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1332</x>
+     <y>419</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1376</x>
+     <y>510</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_showParticle</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>HapticsClass</receiver>
+   <slot>setShowParticleCoupling(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1294</x>
+     <y>387</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1365</x>
+     <y>454</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_captureScreen</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>HapticsClass</receiver>
+   <slot>setCaptureScreen(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1154</x>
+     <y>125</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1302</x>
+     <y>448</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_captureSubScreen</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>HapticsClass</receiver>
+   <slot>setCaptureSubScreen(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1264</x>
+     <y>126</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1284</x>
+     <y>519</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>loadMesh()</slot>
+  <slot>scaleMesh()</slot>
+  <slot>showGrid()</slot>
+  <slot>showMesh(bool)</slot>
+  <slot>showVox(bool)</slot>
+  <slot>showSelection(bool)</slot>
+  <slot>setGridDensity()</slot>
+  <slot>startSimulation()</slot>
+  <slot>pauseSimulation()</slot>
+  <slot>initializeSimulation()</slot>
+  <slot>resetCamera()</slot>
+  <slot>chooseSimulator(int)</slot>
+  <slot>chooseLevelDisplay(int)</slot>
+  <slot>addLevel()</slot>
+  <slot>clearLevel()</slot>
+  <slot>setMultigrid(bool)</slot>
+  <slot>setDynamics(bool)</slot>
+  <slot>setGravity(bool)</slot>
+  <slot>setGravityMagnitude()</slot>
+  <slot>setForceScalar()</slot>
+  <slot>setEnableMass(bool)</slot>
+  <slot>setShowLastLevel(bool)</slot>
+  <slot>setEnergyThreshold()</slot>
+  <slot>setMass()</slot>
+  <slot>resetMass()</slot>
+  <slot>setShowParticleCoupling(bool)</slot>
+  <slot>setCaptureScreen(bool)</slot>
+  <slot>setCaptureSubScreen(bool)</slot>
+ </slots>
+</ui>
