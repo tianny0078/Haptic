@@ -100,6 +100,13 @@ Kernel::Kernel()
 	peNum = 0;
 
 	flag_pause = false;
+	surface_position = Vector3d::Zero();
+	flag_exportObj = false;
+	num_obj = 0;
+
+	sphere = new Mesh;
+	sphere->read("sphere2.obj");
+	para[0] = para[1] = para[2] = 0.0; 
 }
 
 Kernel::~Kernel()
@@ -2589,7 +2596,8 @@ bool Kernel::simulateNextStep4ShapeMatching()
 				ci->a_pq += gni->mass * p * q.transpose();
 			}
 		}
-		ci->computeAQQHaptic();
+		if (ci->haptic_node_list.size() > 0)
+			ci->computeAQQHaptic();
 		ci->a = ci->a_pq * ci->a_qq;
 		
 		
@@ -2636,12 +2644,13 @@ bool Kernel::simulateNextStep4ShapeMatching()
 				Vector3d _force = hni->force + force_gravity * hni->mass + force_wind;
 				if(flag_dynamics)
 				{
-					hni->velocity = (1.0-ci->kappa)*hni->velocity + ci->alpha*(hni->static_position - hni->coordinate - hni->displacement) / time_step_size
-						+ time_step_size * _force * force_scalar/hni->mass;
+					//hni->velocity = (1.0-ci->kappa)*hni->velocity + ci->alpha*(hni->static_position - hni->coordinate - hni->displacement) / time_step_size
+					//	+ time_step_size * _force * force_scalar/hni->mass;
 
-					hni->displacement += time_step_size*hni->velocity;
+					//hni->displacement += time_step_size*hni->velocity;
 
-					//hni->target_position = hni->coordinate + hni->displacement;
+					hni->target_position = hni->static_position + time_step_size * _force * force_scalar/hni->mass;
+					hni->displacement = hni->target_position - hni->coordinate;
 				}
 				//cout << hni->target_position << endl;
 				//cout << hni->static_position << endl;
@@ -2660,12 +2669,15 @@ bool Kernel::simulateNextStep4ShapeMatching()
 				Vector3d _force = gni->force + force_gravity * gni->mass + force_wind;
 				if(flag_dynamics)
 				{
-					gni->velocity = (1.0-ci->kappa)*gni->velocity + ci->alpha*(gni->static_position - gni->coordinate - gni->displacement) / time_step_size
-						+ time_step_size * _force * force_scalar/gni->mass;
+					//gni->velocity = (1.0-ci->kappa)*gni->velocity + ci->alpha*(gni->static_position - gni->coordinate - gni->displacement) / time_step_size
+					//	+ time_step_size * _force * force_scalar/gni->mass;
 
-					gni->displacement += time_step_size*gni->velocity;
+					//gni->displacement += time_step_size*gni->velocity;
 
-					gni->target_position = gni->coordinate + gni->displacement;
+					//gni->target_position = gni->coordinate + gni->displacement;
+
+					gni->target_position = gni->static_position + time_step_size * _force * force_scalar/gni->mass;
+					gni->displacement = gni->target_position - gni->coordinate;
 				}
 				else
 				{
@@ -7885,6 +7897,7 @@ void Kernel::saveOutputData(vector<double>& data, const char* filename)
 
 void Kernel::exportToOBJ(const char *filename)
 {
+	/*
 	ofstream ofs(filename);
 	//ofs << "# timestep " << time_step_index << "OBJ" << endl;
 	vector<Node>::iterator ni;
@@ -7901,6 +7914,37 @@ void Kernel::exportToOBJ(const char *filename)
 		ofs << "f " << fi->idx_node0+1 << " " << fi->idx_node1+1 << " " << fi->idx_node2+1 << endl;
 	}
 	
+	ofs.close();
+	*/
+	ofstream ofs(filename);
+	//ofs << "# timestep " << time_step_index << "OBJ" << endl;
+	ofs << "g " << "object1" << endl;
+	ofs << "o " << "first" << endl;
+	vector<Node>::iterator ni;
+	for (ni = p_mesh->node_list.begin(); ni != p_mesh->node_list.end(); ++ni)
+	{
+		ofs << "v " << ni->coordinate(0) + ni->displacement(0) 
+			<< " " << ni->coordinate(1) + ni->displacement(1) 
+			<< " " << ni->coordinate(2) + ni->displacement(2) << endl;
+	}
+
+	vector<Face>::iterator fi;
+	for (fi = p_mesh->face_list.begin(); fi != p_mesh->face_list.end(); ++fi)
+	{
+		ofs << "f " << fi->idx_node0+1 << " " << fi->idx_node1+1 << " " << fi->idx_node2+1 << endl;
+	}
+	ofs << "g " << "object2" << endl;
+	ofs << "o " << "second" << endl;
+	for (ni = sphere->node_list.begin(); ni != sphere->node_list.end(); ++ni)
+	{
+		ofs << "v " << ni->coordinate(0)/20 + surface_position(0) 
+			<< " " << ni->coordinate(1)/20 + surface_position(1)
+			<< " " << ni->coordinate(2)/20 + surface_position(2) << endl;
+	}
+	for (fi = sphere->face_list.begin(); fi != sphere->face_list.end(); ++fi)
+	{
+		ofs << "f " << p_mesh->number_node+fi->idx_node0+1 << " " << p_mesh->number_node+fi->idx_node1+1 << " " << p_mesh->number_node+fi->idx_node2+1 << endl;
+	}
 	ofs.close();
 }
 
@@ -10025,10 +10069,47 @@ void Kernel::setHapticNode(int idx_triangle, Vector3d coordinate)
 	ghost_node_0.target_position = ghost_node0.coordinate;
 	p_mesh->face_list[idx_triangle].node0->incident_cluster[0]->ghost_node_list.push_back(ghost_node_0);
 	level_list[0]->voxmesh_level->ghost_node_list.back().duplicates.push_back(&p_mesh->face_list[idx_triangle].node0->incident_cluster[0]->ghost_node_list.back());
+
+
+	//compute para
+	Vector3d a = p_mesh->face_list[idx_triangle].node0->coordinate + p_mesh->face_list[idx_triangle].node0->displacement;
+	Vector3d b = p_mesh->face_list[idx_triangle].node0->coordinate + p_mesh->face_list[idx_triangle].node0->displacement;
+	Vector3d c = p_mesh->face_list[idx_triangle].node0->coordinate + p_mesh->face_list[idx_triangle].node0->displacement;
+
+	double d1 = (a[0] -  coordinate[0])*(a[0] -  coordinate[0]) + (a[1] -  coordinate[1])*(a[1] -  coordinate[1])+(a[2] -  coordinate[2])*(a[2] -  coordinate[2]);
+	double d2 = (a[0] -  coordinate[0])*(a[0] -  coordinate[0]) + (a[1] -  coordinate[1])*(a[1] -  coordinate[1])+(a[2] -  coordinate[2])*(a[2] -  coordinate[2]);
+	double d3 = (a[0] -  coordinate[0])*(a[0] -  coordinate[0]) + (a[1] -  coordinate[1])*(a[1] -  coordinate[1])+(a[2] -  coordinate[2])*(a[2] -  coordinate[2]);
+
+	double d =  d2*d3 + d1*d3 + d1*d2;
+	if(d1 == 0)
+	{
+		para[0] = 1;
+		para[1] = 0;
+		para[2] = 0;
+	}
+	else if(d2 == 0)
+	{
+		para[0] = 0;
+		para[1] = 1;
+		para[2] = 0;
+	}
+	else if(d2 == 0)
+	{
+		para[0] = 0;
+		para[1] = 1;
+		para[2] = 0;
+	}
+	else
+	{
+		para[0] = d2 * d3 / d;
+		para[1] = d1 * d3 / d;
+		para[2] = d1 * d2 / d;
+	}
 }
 
 void Kernel::setHapticNode(int idx_triangle)
 {
+
 	Node new_node0;
 	new_node0.coordinate = p_mesh->face_list[idx_triangle].node0->coordinate + p_mesh->face_list[idx_triangle].node0->displacement;
 	new_node0.static_position = new_node0.coordinate;

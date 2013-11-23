@@ -494,6 +494,71 @@
        </item>
       </layout>
      </widget>
+     <widget class="QWidget" name="horizontalLayoutWidget_5">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>50</y>
+        <width>291</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_5">
+       <item>
+        <widget class="QLabel" name="label_3">
+         <property name="minimumSize">
+          <size>
+           <width>150</width>
+           <height>25</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>150</width>
+           <height>25</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>Damping</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="lineEdit_damping">
+         <property name="text">
+          <string>0.01</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_setDamping">
+         <property name="minimumSize">
+          <size>
+           <width>70</width>
+           <height>25</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>70</width>
+           <height>25</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>SetDamp</string>
+         </property>
+         <property name="icon">
+          <iconset resource="../../../JointDeformation/joint_deformation/joint_deformation/joint_deformation.qrc">
+           <normaloff>:/joint_deformation/Resources/dialog_apply.png</normaloff>:/joint_deformation/Resources/dialog_apply.png</iconset>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <zorder>groupBox_2</zorder>
+     <zorder>horizontalLayoutWidget_11</zorder>
+     <zorder>horizontalLayoutWidget_5</zorder>
+     <zorder>pushButton_setDamping</zorder>
     </widget>
    </widget>
    <widget class="QWidget" name="horizontalLayoutWidget_2">
@@ -819,6 +884,7 @@
  </customwidgets>
  <resources>
   <include location="haptics.qrc"/>
+  <include location="../../../JointDeformation/joint_deformation/joint_deformation/joint_deformation.qrc"/>
  </resources>
  <connections>
   <connection>
@@ -1301,6 +1367,22 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>pushButton_setDamping</sender>
+   <signal>clicked()</signal>
+   <receiver>HapticsClass</receiver>
+   <slot>setDampParameter()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1309</x>
+     <y>168</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1219</x>
+     <y>466</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>loadMesh()</slot>
@@ -1331,5 +1413,6 @@
   <slot>setShowParticleCoupling(bool)</slot>
   <slot>setCaptureScreen(bool)</slot>
   <slot>setCaptureSubScreen(bool)</slot>
+  <slot>setDampParameter()</slot>
  </slots>
 </ui>

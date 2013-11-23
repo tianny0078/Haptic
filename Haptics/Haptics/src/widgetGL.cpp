@@ -673,7 +673,6 @@ void widgetGL::updateHaptics(void)
 			
 			if(flag_simulating)
 			{
-
 				Vector3d localforce;
 				cVector3d forceTouch;
 				m_pKernel->getForce4HapticNode(localforce);
@@ -682,14 +681,19 @@ void widgetGL::updateHaptics(void)
 				forceTouch[1] = localforce[1];
 				forceTouch[2] = localforce[2];
 
+				//forceTouch[0] = 0.0;
+				//forceTouch[1] = 0.0;
+				//forceTouch[2] = 0.0;
+
+
 				// update global position of tool
 				cVector3d tPos;
 				m_pMesh->getGlobalRot().mulr(forceTouch, tPos);
 				tPos.addr(m_pMesh->getGlobalPos(), forceTouch);
 
 				forceTouch = 2 * forceTouch * deviceForceScale;
-				m_ptool[i]->m_lastComputedGlobalForce.copyfrom(forceTouch);
-				//cout << forceTouch.length() << endl;
+				forceTouch = (forceTouch + m_ptool[i]->m_lastComputedGlobalForce) / 2.0;
+				//m_ptool[i]->m_lastComputedGlobalForce.copyfrom(forceTouch);
 				if (flag_output)
 					testoutput << forceTouch.length() << endl;
 			}
@@ -723,10 +727,13 @@ void widgetGL::simulateNextStep()
 		//m_ptool[i]->setForcesON();
 
 		m_ptool[i]->updatePose();
+		//////////////////////////hahahaha
 		//if (!flag_istouched)
-		m_ptool[i]->computeInteractionForces();
+		//////////////////////////hahahaha
+			m_ptool[i]->computeInteractionForces();
 		// check if tool is touching an object
 		cGenericObject* contactObject = m_ptool[i]->m_proxyPointForceModel->m_contactPoint0->m_object;
+		Vector3d goalposition;
 		//*****************************************************//// the user is touching an object
         if (contactObject != NULL)
         {
@@ -758,7 +765,7 @@ void widgetGL::simulateNextStep()
 				m_pMesh->getGlobalRot().transr(tRot);
 				tRot.mul(globalDevicePos);
 
-				Vector3d goalposition;
+				
 				goalposition[0] = globalDevicePos[0];
 				goalposition[1] = globalDevicePos[1];
 				goalposition[2] = globalDevicePos[2];
@@ -769,7 +776,8 @@ void widgetGL::simulateNextStep()
 					
 				//cout << "haptic "<< endl;
 				//cout << goalposition << endl;
-				m_pKernel->setGoalPos4HapticNode(goalposition);
+				////////////////not setting
+				//m_pKernel->setGoalPos4HapticNode(goalposition);
 					
 					
 
@@ -777,12 +785,13 @@ void widgetGL::simulateNextStep()
 				//cout << "touch again" << endl;
 				//istouched = false;
 			}
-
+			
 			//**************************************************************
         }
 		//***************************************************************
 		else
 		{
+			
 			//m_pMesh->idx_touch = -1;
 			flag_istouched = false;
 				
@@ -800,7 +809,7 @@ void widgetGL::simulateNextStep()
 				gi->incident_cluster[0]->ghost_node_list.clear();
 			}
 			m_pKernel->level_list[0]->voxmesh_level->ghost_node_list.clear();
-				
+			
 		}
 		//******************************************************************
 		
@@ -808,6 +817,7 @@ void widgetGL::simulateNextStep()
 		if (m_pKernel->flag_simulator_ready)
 			m_pKernel->simulateNextStep();
 
+		//////////////////////////////////////////hahaha
 		/*
 		if (flag_istouched)
 		{
@@ -830,9 +840,23 @@ void widgetGL::simulateNextStep()
 			//	m_ptool[i]->m_proxyPointForceModel->setProxyGlobalPosition(posTouch);
 			//}
 			//
+			Vector3d a = m_pKernel->p_mesh->face_list[m_pMesh->idx_touch].node0->coordinate + m_pKernel->p_mesh->face_list[m_pMesh->idx_touch].node0->displacement;
+			Vector3d b = m_pKernel->p_mesh->face_list[m_pMesh->idx_touch].node1->coordinate + m_pKernel->p_mesh->face_list[m_pMesh->idx_touch].node1->displacement;
+			Vector3d c = m_pKernel->p_mesh->face_list[m_pMesh->idx_touch].node2->coordinate + m_pKernel->p_mesh->face_list[m_pMesh->idx_touch].node2->displacement;
 
-			Node * ver = m_pKernel->p_mesh->face_list[m_pMesh->idx_touch].node0;
-			Vector3d temp = ver->coordinate + ver->displacement;
+			//Node * ver;
+			//if (a.norm() <= c.norm() && a.norm() <= b.norm())
+			//	ver = m_pKernel->p_mesh->face_list[m_pMesh->idx_touch].node0;
+			//else if (b.norm() <= c.norm() && b.norm() <= a.norm())
+			//	ver = m_pKernel->p_mesh->face_list[m_pMesh->idx_touch].node1;
+			//else if (c.norm() <= a.norm() && c.norm() <= b.norm())
+			//	ver = m_pKernel->p_mesh->face_list[m_pMesh->idx_touch].node2;
+
+			//Vector3d temp = ver->coordinate + ver->displacement;
+			Vector3d temp = m_pKernel->para[0] * a + m_pKernel->para[1] * b + m_pKernel->para[2] * c;
+			m_pKernel->surface_position[0] = temp[0];
+			m_pKernel->surface_position[1] = temp[1];
+			m_pKernel->surface_position[2] = temp[2];
 			posTouch[0] = temp[0];
 			posTouch[1] = temp[1];
 			posTouch[2] = temp[2];
@@ -846,6 +870,7 @@ void widgetGL::simulateNextStep()
 			m_ptool[i]->m_proxyPointForceModel->setProxyGlobalPosition(posTouch);
 		}
 		*/
+		/////////////////////////////////////////hahaha
 		
 		//set proxy position
 
@@ -1247,7 +1272,18 @@ void widgetGL::keyPressEvent(QKeyEvent *e)
 	case Qt::Key_A:
 		flag_output = !flag_output;
 		break;
-
+	case Qt::Key_B:
+		m_pKernel->flag_exportObj = !m_pKernel->flag_exportObj;
+		flag_output = !flag_output;
+		if (m_pKernel->flag_exportObj)
+		{
+			cout << "start exporting obj!" << endl;
+		}	
+		else
+		{
+			cout << "stop exporting obj!" << endl;
+		}
+		break;
 	default:
 		m_camStatus = IDLING;
 		break;

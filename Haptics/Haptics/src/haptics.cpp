@@ -102,12 +102,22 @@ void Haptics::simulate()
 		Screenshot.save(filenames, "png", -1);
 	}
 
-	if (flag_exportObj)
+	//if (flag_exportObj)
+	//{
+	//	char filenames[32];
+	//	sprintf(filenames, "..\\OBJs\\OBJ%0004d.obj", m_pKernel->time_step_index);
+	//	m_pKernel->exportToOBJ(filenames);
+
+
+	//}	
+
+	if (flag_exportObj || m_pKernel->flag_exportObj)
 	{
 		char filenames[32];
-		sprintf(filenames, "..\\OBJs\\OBJ%0004d.obj", m_pKernel->time_step_index);
+		sprintf(filenames, "..\\OBJs\\OBJ%0004d.obj", m_pKernel->num_obj);
 		m_pKernel->exportToOBJ(filenames);
-	}	
+		m_pKernel->num_obj ++;
+	}
 
 	double end = GetTickCount() - start;
 	if(end != 0)
@@ -211,6 +221,19 @@ void Haptics::showGrid()
 	ui.widget->flag_show_grid = ui.actionShowGrid->isChecked();
 	ui.actionShowGrid->setChecked(ui.widget->flag_show_grid);
 	ui.widget->updateGL();
+}
+
+void Haptics::setDampParameter()
+{
+	double kappa= ui.lineEdit_damping->text().toDouble();
+	for(int i = 0; i < m_pKernel->level_list.size(); i ++)
+	{
+		vector<Cluster>::iterator ci;
+		for( ci = m_pKernel->level_list[i]->voxmesh_level->cluster_list.begin(); ci != m_pKernel->level_list[i]->voxmesh_level->cluster_list.end(); ci++)
+		{
+			ci->kappa = kappa;
+		}
+	}
 }
 
 void Haptics::showMesh(bool value)

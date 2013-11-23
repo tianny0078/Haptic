@@ -238,6 +238,11 @@ public:
 
 	//haptic
 	bool flag_pause;
+	Vector3d surface_position;
+	bool flag_exportObj;
+	int num_obj;
+	Mesh * sphere;
+	double para[3];
 };
 
 #endif

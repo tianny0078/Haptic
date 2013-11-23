@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'haptics.ui'
 **
-** Created: Sat Jul 6 06:24:20 2013
+** Created: Fri Nov 22 22:14:52 2013
 **      by: Qt User Interface Compiler version 4.8.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -105,6 +105,11 @@ public:
     QCheckBox *checkBox_exportObj;
     QCheckBox *checkBox_captureScreen;
     QCheckBox *checkBox_captureSubScreen;
+    QWidget *horizontalLayoutWidget_5;
+    QHBoxLayout *horizontalLayout_5;
+    QLabel *label_3;
+    QLineEdit *lineEdit_damping;
+    QPushButton *pushButton_setDamping;
     QWidget *horizontalLayoutWidget_2;
     QHBoxLayout *horizontalLayout_2;
     QPushButton *pushButton_initSimulator;
@@ -432,7 +437,41 @@ public:
 
         horizontalLayout_11->addWidget(checkBox_captureSubScreen);
 
+        horizontalLayoutWidget_5 = new QWidget(tab_2);
+        horizontalLayoutWidget_5->setObjectName(QString::fromUtf8("horizontalLayoutWidget_5"));
+        horizontalLayoutWidget_5->setGeometry(QRect(10, 50, 291, 31));
+        horizontalLayout_5 = new QHBoxLayout(horizontalLayoutWidget_5);
+        horizontalLayout_5->setSpacing(6);
+        horizontalLayout_5->setContentsMargins(11, 11, 11, 11);
+        horizontalLayout_5->setObjectName(QString::fromUtf8("horizontalLayout_5"));
+        horizontalLayout_5->setContentsMargins(0, 0, 0, 0);
+        label_3 = new QLabel(horizontalLayoutWidget_5);
+        label_3->setObjectName(QString::fromUtf8("label_3"));
+        label_3->setMinimumSize(QSize(150, 25));
+        label_3->setMaximumSize(QSize(150, 25));
+
+        horizontalLayout_5->addWidget(label_3);
+
+        lineEdit_damping = new QLineEdit(horizontalLayoutWidget_5);
+        lineEdit_damping->setObjectName(QString::fromUtf8("lineEdit_damping"));
+
+        horizontalLayout_5->addWidget(lineEdit_damping);
+
+        pushButton_setDamping = new QPushButton(horizontalLayoutWidget_5);
+        pushButton_setDamping->setObjectName(QString::fromUtf8("pushButton_setDamping"));
+        pushButton_setDamping->setMinimumSize(QSize(70, 25));
+        pushButton_setDamping->setMaximumSize(QSize(70, 25));
+        QIcon icon8;
+        icon8.addFile(QString::fromUtf8(":/joint_deformation/Resources/dialog_apply.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton_setDamping->setIcon(icon8);
+
+        horizontalLayout_5->addWidget(pushButton_setDamping);
+
         tabWidget->addTab(tab_2, QString());
+        groupBox_2->raise();
+        horizontalLayoutWidget_11->raise();
+        horizontalLayoutWidget_5->raise();
+        pushButton_setDamping->raise();
         horizontalLayoutWidget_2 = new QWidget(centralWidget);
         horizontalLayoutWidget_2->setObjectName(QString::fromUtf8("horizontalLayoutWidget_2"));
         horizontalLayoutWidget_2->setGeometry(QRect(1040, 400, 351, 61));
@@ -443,41 +482,41 @@ public:
         horizontalLayout_2->setContentsMargins(0, 0, 0, 0);
         pushButton_initSimulator = new QPushButton(horizontalLayoutWidget_2);
         pushButton_initSimulator->setObjectName(QString::fromUtf8("pushButton_initSimulator"));
-        QIcon icon8;
-        icon8.addFile(QString::fromUtf8(":/Haptics/Resources/gnome_run.png"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButton_initSimulator->setIcon(icon8);
+        QIcon icon9;
+        icon9.addFile(QString::fromUtf8(":/Haptics/Resources/gnome_run.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton_initSimulator->setIcon(icon9);
 
         horizontalLayout_2->addWidget(pushButton_initSimulator);
 
         pushButton_startSimulation = new QPushButton(horizontalLayoutWidget_2);
         pushButton_startSimulation->setObjectName(QString::fromUtf8("pushButton_startSimulation"));
-        QIcon icon9;
-        icon9.addFile(QString::fromUtf8(":/Haptics/Resources/gtk_media_play_ltr.png"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButton_startSimulation->setIcon(icon9);
+        QIcon icon10;
+        icon10.addFile(QString::fromUtf8(":/Haptics/Resources/gtk_media_play_ltr.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton_startSimulation->setIcon(icon10);
 
         horizontalLayout_2->addWidget(pushButton_startSimulation);
 
         pushButton_nextStep = new QPushButton(horizontalLayoutWidget_2);
         pushButton_nextStep->setObjectName(QString::fromUtf8("pushButton_nextStep"));
-        QIcon icon10;
-        icon10.addFile(QString::fromUtf8(":/Haptics/Resources/gtk_media_next_ltr.png"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButton_nextStep->setIcon(icon10);
+        QIcon icon11;
+        icon11.addFile(QString::fromUtf8(":/Haptics/Resources/gtk_media_next_ltr.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton_nextStep->setIcon(icon11);
 
         horizontalLayout_2->addWidget(pushButton_nextStep);
 
         pushButton__pauseSimulation = new QPushButton(horizontalLayoutWidget_2);
         pushButton__pauseSimulation->setObjectName(QString::fromUtf8("pushButton__pauseSimulation"));
-        QIcon icon11;
-        icon11.addFile(QString::fromUtf8(":/Haptics/Resources/gtk_media_pause.png"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButton__pauseSimulation->setIcon(icon11);
+        QIcon icon12;
+        icon12.addFile(QString::fromUtf8(":/Haptics/Resources/gtk_media_pause.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton__pauseSimulation->setIcon(icon12);
 
         horizontalLayout_2->addWidget(pushButton__pauseSimulation);
 
         pushButton_resetSimulation = new QPushButton(horizontalLayoutWidget_2);
         pushButton_resetSimulation->setObjectName(QString::fromUtf8("pushButton_resetSimulation"));
-        QIcon icon12;
-        icon12.addFile(QString::fromUtf8(":/Haptics/Resources/gtk_media_stop.png"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButton_resetSimulation->setIcon(icon12);
+        QIcon icon13;
+        icon13.addFile(QString::fromUtf8(":/Haptics/Resources/gtk_media_stop.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton_resetSimulation->setIcon(icon13);
 
         horizontalLayout_2->addWidget(pushButton_resetSimulation);
 
@@ -537,6 +576,7 @@ public:
         QObject::connect(checkBox_showParticle, SIGNAL(clicked(bool)), HapticsClass, SLOT(setShowParticleCoupling(bool)));
         QObject::connect(checkBox_captureScreen, SIGNAL(clicked(bool)), HapticsClass, SLOT(setCaptureScreen(bool)));
         QObject::connect(checkBox_captureSubScreen, SIGNAL(clicked(bool)), HapticsClass, SLOT(setCaptureSubScreen(bool)));
+        QObject::connect(pushButton_setDamping, SIGNAL(clicked()), HapticsClass, SLOT(setDampParameter()));
 
         tabWidget->setCurrentIndex(1);
 
@@ -614,6 +654,9 @@ public:
         checkBox_exportObj->setText(QApplication::translate("HapticsClass", "ExportOBJ", 0, QApplication::UnicodeUTF8));
         checkBox_captureScreen->setText(QApplication::translate("HapticsClass", "CaptureScreen", 0, QApplication::UnicodeUTF8));
         checkBox_captureSubScreen->setText(QApplication::translate("HapticsClass", "CaptureSubScreen", 0, QApplication::UnicodeUTF8));
+        label_3->setText(QApplication::translate("HapticsClass", "Damping", 0, QApplication::UnicodeUTF8));
+        lineEdit_damping->setText(QApplication::translate("HapticsClass", "0.01", 0, QApplication::UnicodeUTF8));
+        pushButton_setDamping->setText(QApplication::translate("HapticsClass", "SetDamp", 0, QApplication::UnicodeUTF8));
         tabWidget->setTabText(tabWidget->indexOf(tab_2), QApplication::translate("HapticsClass", "ShapeMatching", 0, QApplication::UnicodeUTF8));
         pushButton_initSimulator->setText(QString());
         pushButton_startSimulation->setText(QString());

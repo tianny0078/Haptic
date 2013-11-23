@@ -221,7 +221,7 @@ Cluster::Cluster()
 	alpha = 1.0;
 	beta = 0.0;
 	//kappa = 0.01;
-	kappa = 0.3;
+	kappa = 0.01;
 
 	max_x = -1e10;
 	max_y = -1e10;

@@ -76,6 +76,8 @@ public slots:
 	void setShowParticleCoupling(bool);
 	void setCaptureScreen(bool);
 	void setCaptureSubScreen(bool);
+
+	void setDampParameter();
 public:
 
 };
